@@ -1,5 +1,7 @@
 #include "Generador.h"
-
+#include "Generador.h"
+#include <iostream>
+using namespace std;
 //Generador::Generador() {
 //	
 //}
@@ -56,6 +58,10 @@ void ver3piezas(NodoPieza* cabeza){
 	}
 	aux= aux->siguiente;
 	cout<<aux->dato.tipo<<endl;
+}
+	
+Pieza verFrente(NodoPieza* cabeza){
+	return cabeza->dato;
 }
 
 bool vacia(NodoPieza* cabeza){
