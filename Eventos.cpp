@@ -4,6 +4,8 @@
 //	
 //}
 
+#include <iostream>
+using namespace std;
 
 void insertar(NodoEventos* &cabeza, NodoEventos* &cola, float tiempo, char TE){
 	

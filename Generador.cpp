@@ -8,7 +8,7 @@ using namespace std;
 
 void encolar(NodoPieza* &cabeza, NodoPieza* &cola,Pieza nodo){
 	
-	NodoPieza* nuevo = new NodoPieza(nodo, nullptr);
+	NodoPieza* nuevo = new NodoPieza{nodo, nullptr};
 	if(vacia(cabeza) == true){
 		cabeza = nuevo;
 		cola = nuevo;

@@ -1,11 +1,6 @@
 #ifndef TABLERO_H
 #define TABLERO_H
-
-//class Tablero {
-//public:
-//	Tablero();
-//private:
-//};
+#include "Pieza.h"
 
 struct NodoFila{
 	NodoFila* siguiente;
@@ -18,10 +13,13 @@ struct NodoFila{
 	}
 };
 
-void llena();
-void imprimir();
 void crear(NodoFila* &cabeza);
 void insertarAlInicio(NodoFila* &cabeza);
+bool llena(NodoFila* fila);
+void imprimir(NodoFila* cabeza);
+int indiceTipo(char tipo);
+bool hayColision(NodoFila* cabeza, Pieza p);
+void colocarPieza(NodoFila* cabeza, Pieza p);
+void limpiarFilas(NodoFila* &cabeza);
 
 #endif
-
