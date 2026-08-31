@@ -1,22 +1,18 @@
 #ifndef INTERFAZ_H
 #define INTERFAZ_H
+#include "raylib.h"
+#include "Tablero.h"
+#include "Generador.h"
+#include "Hold.h"
 
-class interfaz {
-public:
-	interfaz();
-private:
-};
+const int TAM_CELDA = 30; // tamaño en pixeles de cada celda del tablero
 
-
-void iniciarVentana();                                  
-void cerrarVentana();                                    
-
-void dibujarTablero(NodoFila* cabeza);                     
-void dibujarPiezaActual(Pieza p);                            
-void dibujarSiguientes(NodoPieza* cabeza);                   
-void dibujarHold(NodoHold* tope);                            
-void dibujarPuntaje(int puntaje);                             
-
-char colorDePieza(char tipo);                              
+void iniciarVentana();
+void cerrarVentana();
+Color colorDePieza(char tipo);
+void dibujarTablero(NodoFila* cabeza);
+void dibujarPiezaActual(Pieza p);
+void rotarPieza(Pieza &p, NodoFila* tablero);
+void moverPieza(Pieza &p, NodoFila* tablero, int deltaCol, int deltaFila);
+void dibujarSiguientes(NodoPieza* cabeza);
 #endif
-

@@ -28,5 +28,6 @@ void desencolar(NodoPieza* &cabeza, NodoPieza* &cola);
 void ver3piezas(NodoPieza* cabeza);
 Pieza verFrente(NodoPieza* cabeza);
 bool vacia(NodoPieza* cabeza);
+void llenar(NodoPieza* &cabeza, NodoPieza* &cola);
 
 #endif

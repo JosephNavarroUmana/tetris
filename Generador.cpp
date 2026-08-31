@@ -1,5 +1,7 @@
 #include "Generador.h"
 #include "Generador.h"
+#include <cstdlib> 
+#include <ctime>   
 #include <iostream>
 using namespace std;
 //Generador::Generador() {
@@ -69,4 +71,28 @@ bool vacia(NodoPieza* cabeza){
 	if(cabeza == nullptr)return true;
 	return false;
 	
+}
+	
+	
+void llenar(NodoPieza* &cabeza, NodoPieza* &cola){
+	
+	char tipos[7] = {'I','O','T','S','Z','J','L'};
+	
+
+	for(int i = 6; i > 0; i--){
+		int j = rand() % (i + 1);
+		char temp = tipos[i];
+		tipos[i] = tipos[j];
+		tipos[j] = temp;
+	}
+	
+	for(int i = 0; i < 7; i++){
+		Pieza p;
+		p.tipo = tipos[i];
+		p.direccion = 0;
+		p.ubicacion[0] = 3; 
+		p.ubicacion[1] = 0; 
+		
+		encolar(cabeza, cola, p);
+	}
 }
