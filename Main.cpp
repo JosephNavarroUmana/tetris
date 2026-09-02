@@ -14,6 +14,8 @@ int main(){
 	
 	NodoPieza* genCabeza = nullptr;
 	NodoPieza* genCola = nullptr;
+	NodoHold* holdTope = nullptr;
+	int puntaje = 0;
 	llenar(genCabeza, genCola);
 	
 	Pieza piezaActual = verFrente(genCabeza);
@@ -33,7 +35,29 @@ int main(){
 			if(IsKeyPressed(KEY_LEFT))  moverPieza(piezaActual, tablero, -1, 0);
 			if(IsKeyPressed(KEY_RIGHT)) moverPieza(piezaActual, tablero, 1, 0);
 			if(IsKeyPressed(KEY_DOWN))  moverPieza(piezaActual, tablero, 0, 1);
-			if(IsKeyPressed(KEY_UP))    rotarPieza(piezaActual, tablero);
+			if(IsKeyPressed(KEY_X))     rotarPieza(piezaActual, tablero);
+			if(IsKeyPressed(KEY_Z)){
+				if(vacia(holdTope)){
+					Pieza aGuardar = piezaActual;
+					aGuardar.direccion = 0;
+					aGuardar.ubicacion[0] = 3;
+					aGuardar.ubicacion[1] = 0;
+					push(holdTope, aGuardar);
+					
+					piezaActual = verFrente(genCabeza);
+					desencolar(genCabeza, genCola);
+				} else {
+					Pieza intercambio = pop(holdTope);
+					
+					Pieza aGuardar = piezaActual;
+					aGuardar.direccion = 0;
+					aGuardar.ubicacion[0] = 3;
+					aGuardar.ubicacion[1] = 0;
+					push(holdTope, aGuardar);
+					
+					piezaActual = intercambio;
+				}
+			}
 			
 			tiempoAcumulado += GetFrameTime();
 			if(tiempoAcumulado >= tiempoCaida){
@@ -64,16 +88,20 @@ int main(){
 		}
 		
 		BeginDrawing();
-		ClearBackground(RAYWHITE);
+		dibujarFondo();
 		dibujarTablero(tablero);
 		
 		if(!juegoTerminado){
 			dibujarPiezaActual(piezaActual);
 		} else {
-			DrawText("GAME OVER", 260, 280, 30, RED);
+			dibujarGameOver();
 		}
 		
 		dibujarSiguientes(genCabeza);
+		dibujarPuntaje(puntaje);
+		dibujarHold(holdTope);
+		dibujarSiguientes(genCabeza);
+		dibujarControles();
 		
 		EndDrawing();
 	}
