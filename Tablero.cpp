@@ -95,9 +95,10 @@ void imprimir(NodoFila* cabeza){
 					}
 				}
 					
-					void limpiarFilas(NodoFila* &cabeza){
+					int limpiarFilas(NodoFila* &cabeza){
 						NodoFila* aux = cabeza;
 						NodoFila* anterior = nullptr;
+						int contadorLimpiadas = 0;
 						
 						while(aux != nullptr){
 							NodoFila* siguienteGuardado = aux->siguiente;
@@ -113,6 +114,7 @@ void imprimir(NodoFila* cabeza){
 								
 								// insertar una fila vacia nueva arriba de todo
 								insertarAlInicio(cabeza);
+								contadorLimpiadas++;
 								
 								aux = siguienteGuardado; // seguimos desde donde iba
 							} else {
@@ -120,4 +122,15 @@ void imprimir(NodoFila* cabeza){
 								aux = aux->siguiente;
 							}
 						}
+						
+						return contadorLimpiadas;
 					}
+						
+						bool hayFilaLlena(NodoFila* cabeza){
+							NodoFila* aux = cabeza;
+							while(aux != nullptr){
+								if(llena(aux)) return true;
+								aux = aux->siguiente;
+							}
+							return false;
+						}

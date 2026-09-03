@@ -20,6 +20,7 @@ void imprimir(NodoFila* cabeza);
 int indiceTipo(char tipo);
 bool hayColision(NodoFila* cabeza, Pieza p);
 void colocarPieza(NodoFila* cabeza, Pieza p);
-void limpiarFilas(NodoFila* &cabeza);
+int limpiarFilas(NodoFila* &cabeza);
+bool hayFilaLlena(NodoFila* cabeza);
 
 #endif
