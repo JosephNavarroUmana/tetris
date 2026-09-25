@@ -1,14 +1,3 @@
-//#ifndef GENERADOR_H
-//#define GENERADOR_H
-//
-//class Generador {
-//public:
-//	Generador();
-//private:
-//};
-//
-//#endif
-//
 #ifndef GENERADOR_H
 #define GENERADOR_H
 #include "Pieza.h"

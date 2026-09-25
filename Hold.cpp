@@ -1,11 +1,6 @@
 #include "Hold.h"
 #include <iostream>
 using namespace std;
-//Hold::Hold() {
-//	
-//}
-
-using namespace std;
 
 void push(NodoHold* &tope, Pieza pieza){
 	if(vacia(tope)){

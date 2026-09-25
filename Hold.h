@@ -2,12 +2,6 @@
 #define HOLD_H
 #include "Pieza.h"
 
-//class Hold {
-//public:
-//	Hold();
-//private:
-//};
-
 struct NodoHold{
 	Pieza dato;
 };

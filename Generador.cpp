@@ -4,9 +4,6 @@
 #include <ctime>   
 #include <iostream>
 using namespace std;
-//Generador::Generador() {
-//	
-//}
 
 void encolar(NodoPieza* &cabeza, NodoPieza* &cola,Pieza nodo){
 	
@@ -25,7 +22,7 @@ void encolar(NodoPieza* &cabeza, NodoPieza* &cola,Pieza nodo){
 void desencolar(NodoPieza* &cabeza, NodoPieza* &cola){
 	
 	if(vacia(cabeza) == true){
-		return;//No se puede desencolar
+		return;
 	}
 	
 	NodoPieza* aux = cabeza;
@@ -96,3 +93,5 @@ void llenar(NodoPieza* &cabeza, NodoPieza* &cola){
 		encolar(cabeza, cola, p);
 	}
 }
+
+
